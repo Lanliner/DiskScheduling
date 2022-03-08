@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="280.0" prefWidth="480.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.ResultController">
+   <children>
+      <TableView fx:id="table" layoutX="12.0" layoutY="12.0" prefHeight="373.0" prefWidth="575.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+        <columns>
+          <TableColumn fx:id="typeColumn" editable="false" prefWidth="240.0" resizable="false" sortable="false" text="寻道方式" />
+          <TableColumn fx:id="totalColumn" editable="false" prefWidth="113.0" resizable="false" sortable="false" text="磁头移动道数" />
+            <TableColumn fx:id="averageColumn" editable="false" prefWidth="115.0" resizable="false" sortable="false" text="平均每次移动" />
+        </columns>
+         <columnResizePolicy>
+            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+         </columnResizePolicy>
+      </TableView>
+   </children>
+</AnchorPane>

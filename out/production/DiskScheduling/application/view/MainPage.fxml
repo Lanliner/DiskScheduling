@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.effect.*?>
+<?import java.lang.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.controller.MainController">
+   <children>
+      <GridPane layoutX="106.0" layoutY="55.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="46.0" prefWidth="394.0" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="40.0">
+        <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="132.0" minWidth="10.0" prefWidth="127.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="129.0" minWidth="10.0" prefWidth="104.0" />
+          <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="127.0" minWidth="10.0" prefWidth="101.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints minHeight="10.0" prefHeight="30.0" valignment="CENTER" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <Button fx:id="checkSeriesButton" mnemonicParsing="false" onAction="#checkSeriesAction" text="查看请求序列" GridPane.columnIndex="1" />
+            <Button fx:id="generateSeriesButton" mnemonicParsing="false" onAction="#generateSeriesAction" text="生成请求序列" />
+            <Button fx:id="resultButton" mnemonicParsing="false" onAction="#resultAction" text="查看分析结果" GridPane.columnIndex="2" />
+         </children>
+      </GridPane>
+      <GridPane layoutX="732.0" layoutY="60.0" prefHeight="57.0" prefWidth="471.0" AnchorPane.rightAnchor="31.0" AnchorPane.topAnchor="56.0">
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="100.0" minWidth="10.0" prefWidth="68.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="135.0" minWidth="10.0" prefWidth="76.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="156.0" minWidth="10.0" prefWidth="74.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" maxWidth="250.0" minWidth="10.0" prefWidth="245.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+         </rowConstraints>
+         <children>
+            <Label text="显示：">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <RadioButton fx:id="FCFSButton" mnemonicParsing="false" onAction="#FCFSAction" prefHeight="20.0" prefWidth="69.0" selected="true" text="FCFS" GridPane.columnIndex="1" />
+            <RadioButton fx:id="SSTFButton" mnemonicParsing="false" onAction="#SSTFAction" prefHeight="20.0" prefWidth="67.0" selected="true" text="SSTF" GridPane.columnIndex="2" />
+            <RadioButton fx:id="CSCANPosButton" mnemonicParsing="false" onAction="#CSCANPosAction" prefHeight="20.0" prefWidth="224.0" selected="true" text="C-SCAN（磁道号递增方向）" GridPane.columnIndex="3" />
+            <RadioButton fx:id="CSCANNegButton" mnemonicParsing="false" onAction="#CSCANNegAction" prefHeight="20.0" prefWidth="223.0" selected="true" text="C-SCAN（磁道号递减方向）" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+         </children>
+      </GridPane>
+      <AnchorPane fx:id="chartPane" layoutX="30.0" layoutY="120.0" style="-fx-background-color: #ffffff; -fx-border-color: #dddddd;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="120.0">
+         <effect>
+            <InnerShadow color="#0000007e" height="20.0" radius="9.5" width="20.0" />
+         </effect></AnchorPane>
+      <Slider fx:id="slider" layoutX="897.0" layoutY="26.0" max="3.0" min="0.1" prefHeight="18.0" prefWidth="356.0" AnchorPane.rightAnchor="48.0" AnchorPane.topAnchor="26.0" />
+      <Label layoutX="772.0" layoutY="23.0" prefHeight="24.0" prefWidth="110.0" text="寻道时间：" AnchorPane.rightAnchor="400.0" AnchorPane.topAnchor="23.0">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
+      <Button fx:id="startButton" layoutX="585.0" layoutY="58.0" mnemonicParsing="false" onAction="#startAction" prefHeight="30.0" prefWidth="110.0" text="开始模拟" AnchorPane.leftAnchor="585.0" AnchorPane.topAnchor="58.0">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+      <Label layoutX="567.0" layoutY="25.0" text="起始磁道：" AnchorPane.leftAnchor="567.0" AnchorPane.topAnchor="25.0" />
+      <TextField fx:id="startText" layoutX="652.0" layoutY="20.0" prefHeight="30.0" prefWidth="61.0" AnchorPane.leftAnchor="652.0" AnchorPane.topAnchor="20.0" />
+      <Label fx:id="doneLabel" layoutX="89.0" layoutY="86.0" text="完成 !" textFill="#45d058" AnchorPane.leftAnchor="84.0" AnchorPane.topAnchor="84.0">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font></Label>
+      <RadioButton fx:id="LOOKButton" layoutX="853.0" layoutY="90.0" mnemonicParsing="false" onAction="#LOOKAction" prefHeight="20.0" prefWidth="159.0" selected="true" text="电梯（LOOK）" AnchorPane.rightAnchor="268.0" AnchorPane.topAnchor="90.0" />
+   </children>
+</AnchorPane>
